@@ -21,8 +21,8 @@ namespace MrRobot.UnitTests {
         }
 
         [Fact]
-        public void RunCleaningUseCase_ReturnsCleanedSpaces_When4Commandst() {
-            Position initialPosition = new Position(0, 0);
+        public void RunCleaningUseCase_ReturnsCleanedSpaces_When4Commands() {
+            Position initialPosition = new Position(-10, 0);
             List<Command> commands = new List<Command>() { 
                 new Command(10, Direction.East),
                 new Command(10, Direction.North),
@@ -31,6 +31,28 @@ namespace MrRobot.UnitTests {
             };
             
             int expectedUniquePlacesCleaned = 40;
+
+            IRunUseCase sut = new RunUseCase();
+            RunOutput actual = sut.Execute(initialPosition, commands);
+
+            Assert.Equal(expectedUniquePlacesCleaned, actual.UniquePlacesCleaned);
+        }
+
+        [Fact]
+        public void RunCleaningUseCase_ReturnsCleanedSpaces_WhenGoFowardThenBack() {
+            Position initialPosition = new Position(-100, -100);
+            List<Command> commands = new List<Command>() { 
+                new Command(10, Direction.East),
+                new Command(10, Direction.West),
+                new Command(10, Direction.East),
+                new Command(10, Direction.West),
+                new Command(10, Direction.East),
+                new Command(10, Direction.West),
+                new Command(10, Direction.East),
+                new Command(10, Direction.West)
+            };
+            
+            int expectedUniquePlacesCleaned = 11;
 
             IRunUseCase sut = new RunUseCase();
             RunOutput actual = sut.Execute(initialPosition, commands);
