@@ -39,7 +39,7 @@ namespace MrRobot.UnitTests {
         }
 
         [Fact]
-        public void RunCleaningUseCase_ReturnsCleanedSpaces_WhenGoFowardThenBack() {
+        public void RunCleaningUseCase_ReturnsCleanedSpaces_WhenGoingForwardThenBack() {
             Position initialPosition = new Position(-100, -100);
             List<Command> commands = new List<Command>() { 
                 new Command(10, Direction.East),
