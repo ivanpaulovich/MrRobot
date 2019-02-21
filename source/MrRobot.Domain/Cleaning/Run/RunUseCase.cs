@@ -4,60 +4,47 @@ namespace MrRobot.Domain.Cleaning.Run
     
     public sealed class RunUseCase : IRunUseCase
     {
-        private HashSet<Position> _uniquePlaces;
-
         public RunOutput Execute(Position initialPosition, IList<Command> commands)
         {
-            _uniquePlaces = new HashSet<Position>();
-            _uniquePlaces.Add(initialPosition);
+            HashSet<Position> uniquePlaces = new HashSet<Position>();
+            uniquePlaces.Add(initialPosition);
 
             Position newPosition = initialPosition;
 
             foreach(Command command in commands) 
-            {
-                newPosition = Move(newPosition, command.Direction, command.NumSteps);
-            }
+                newPosition = Move(uniquePlaces, newPosition, command.Direction, command.NumSteps);
 
-            return new RunOutput(_uniquePlaces.Count);
+            return new RunOutput(uniquePlaces.Count);
         }
 
-        private Position Move(Position initialPosition, Direction direction, int steps)
+        private Position Move(HashSet<Position> uniquePlaces, Position initialPosition, Direction direction, int steps)
         {
             Position position = null;
 
-            if (direction == Direction.East)
+            for(int i = 1; i <= steps; i++)
             {
-                for(int i = 0; i < steps; i--)
+                if (direction == Direction.East)
                 {
                     position = new Position(initialPosition.X + i, initialPosition.Y);
-                    _uniquePlaces.Add(position);
+                    uniquePlaces.Add(position);
                 }
-            }
 
-            if (direction == Direction.West)
-            {
-                for(int i = 0; i < steps; i++)
+                if (direction == Direction.West)
                 {
-                    position = new Position(initialPosition.X + i, initialPosition.Y);
-                    _uniquePlaces.Add(position);
+                    position = new Position(initialPosition.X - i, initialPosition.Y);
+                    uniquePlaces.Add(position);
                 }
-            }
 
-            if (direction == Direction.South)
-            {
-                for(int i = 0; i < steps; i++)
+                if (direction == Direction.South)
                 {
                     position = new Position(initialPosition.X, initialPosition.Y + i);
-                    _uniquePlaces.Add(position);
+                    uniquePlaces.Add(position);
                 }
-            }
 
-            if (direction == Direction.North)
-            {
-                for(int i = 0; i < steps; i--)
+                if (direction == Direction.North)
                 {
-                    position = new Position(initialPosition.X, initialPosition.Y + i);
-                    _uniquePlaces.Add(position);
+                    position = new Position(initialPosition.X, initialPosition.Y - i);
+                    uniquePlaces.Add(position);
                 }
             }
 

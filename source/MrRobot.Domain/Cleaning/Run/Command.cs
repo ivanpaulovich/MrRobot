@@ -2,13 +2,13 @@ namespace MrRobot.Domain.Cleaning.Run
 {
     public sealed class Command
     {
-        public Direction Direction { get; }
         public int NumSteps { get; }
+        public Direction Direction { get; }
 
-        public Command(Direction direction, int numSteps)
+        public Command(int numSteps, Direction direction)
         {
-            Direction = direction;
             NumSteps = numSteps;
+            Direction = direction;
         }
     }
 }
