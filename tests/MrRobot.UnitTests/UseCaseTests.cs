@@ -10,17 +10,12 @@ namespace MrRobot.UnitTests {
             Command command1 = new Command(Direction.East, 2);
             Command command2 = new Command(Direction. North, 1);
             
-            int minCommands = 0;
-            int maxCommands = 10_000;
-            int minX = -100_000;
-            int maxX = 100_000;
-            int minY = -100_000;
-            int maxY = 100_000;
+            int expectedUniquePlacesCleaned = 4;
 
-            IRunUseCase sut = new RunUseCase(minCommands, maxCommands, minX, maxX, minY, maxY);
-
+            IRunUseCase sut = new RunUseCase();
             RunOutput actual = sut.Execute(initialPosition, new List<Command>() { command1, command2 });
 
+            Assert.Equal(expectedUniquePlacesCleaned, actual.UniquePlacesCleaned);
         }
     }
 }
