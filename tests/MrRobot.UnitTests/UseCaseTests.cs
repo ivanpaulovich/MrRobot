@@ -59,5 +59,23 @@ namespace MrRobot.UnitTests {
 
             Assert.Equal(expectedUniquePlacesCleaned, actual.UniquePlacesCleaned);
         }
+
+        [Fact]
+        public void RunCleaningUseCase_ReturnsCleanedSpaces_WhenWalkingEdges() {
+            Position initialPosition = new Position(-100_000, -100_000);
+            List<Command> commands = new List<Command>() { 
+                new Command(200_000, Direction.East),
+                new Command(200_000, Direction.South),
+                new Command(200_000, Direction.West),
+                new Command(200_000, Direction.North),
+            };
+            
+            int expectedUniquePlacesCleaned = 800_000;
+
+            IRunUseCase sut = new RunUseCase();
+            RunOutput actual = sut.Execute(initialPosition, commands);
+
+            Assert.Equal(expectedUniquePlacesCleaned, actual.UniquePlacesCleaned);
+        }
     }
 }
