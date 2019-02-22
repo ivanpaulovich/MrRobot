@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{E30AE3F5
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MrRobot.UnitTests", "tests\MrRobot.UnitTests\MrRobot.UnitTests.csproj", "{6E84C075-E17C-4A77-8305-E69C336B8C31}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MrRobot.ConsoleApp", "source\MrRobot.ConsoleApp\MrRobot.ConsoleApp.csproj", "{EF505653-7AA3-4B10-8FAE-7FA827E31754}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,9 +50,22 @@ Global
 		{6E84C075-E17C-4A77-8305-E69C336B8C31}.Release|x64.Build.0 = Release|Any CPU
 		{6E84C075-E17C-4A77-8305-E69C336B8C31}.Release|x86.ActiveCfg = Release|Any CPU
 		{6E84C075-E17C-4A77-8305-E69C336B8C31}.Release|x86.Build.0 = Release|Any CPU
+		{EF505653-7AA3-4B10-8FAE-7FA827E31754}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF505653-7AA3-4B10-8FAE-7FA827E31754}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF505653-7AA3-4B10-8FAE-7FA827E31754}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{EF505653-7AA3-4B10-8FAE-7FA827E31754}.Debug|x64.Build.0 = Debug|Any CPU
+		{EF505653-7AA3-4B10-8FAE-7FA827E31754}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{EF505653-7AA3-4B10-8FAE-7FA827E31754}.Debug|x86.Build.0 = Debug|Any CPU
+		{EF505653-7AA3-4B10-8FAE-7FA827E31754}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF505653-7AA3-4B10-8FAE-7FA827E31754}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF505653-7AA3-4B10-8FAE-7FA827E31754}.Release|x64.ActiveCfg = Release|Any CPU
+		{EF505653-7AA3-4B10-8FAE-7FA827E31754}.Release|x64.Build.0 = Release|Any CPU
+		{EF505653-7AA3-4B10-8FAE-7FA827E31754}.Release|x86.ActiveCfg = Release|Any CPU
+		{EF505653-7AA3-4B10-8FAE-7FA827E31754}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{0DC4BD82-E2FE-4690-BB97-859D886BEAC6} = {C0FCE702-2CA2-4A2F-A82C-640D461CBB3D}
 		{6E84C075-E17C-4A77-8305-E69C336B8C31} = {E30AE3F5-275C-4330-A105-32BF4525267A}
+		{EF505653-7AA3-4B10-8FAE-7FA827E31754} = {C0FCE702-2CA2-4A2F-A82C-640D461CBB3D}
 	EndGlobalSection
 EndGlobal

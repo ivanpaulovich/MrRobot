@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/tests/MrRobot.UnitTests/bin/Debug/netcoreapp2.2/MrRobot.UnitTests.dll",
+            "program": "${workspaceFolder}/source/MrRobot.ConsoleApp/bin/Debug/netcoreapp2.2/MrRobot.ConsoleApp.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/tests/MrRobot.UnitTests",
+            "cwd": "${workspaceFolder}/source/MrRobot.ConsoleApp",
             // For more information about the 'console' field, see https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md#console-terminal-window
             "console": "internalConsole",
             "stopAtEntry": false,
