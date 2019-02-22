@@ -1,4 +1,4 @@
-# What is MrRobot
+# :zap: What is MrRobot
 It is a Cleaning Robot that informs the number of places cleaned after each execution.
 
 # :rocket: Running Unit Tests
