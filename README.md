@@ -37,3 +37,23 @@ Expected Output:
 => Cleaned: 11
 => Cleaned: 800000
 ```
+
+Usage:
+
+```
+dotnet run
+[number of commands]
+[initial position x] [initial position y]
+[direction] [number of steps]
+[direction] [number of steps]
+..
+[direction] [number of steps]
+
+Where:
+
+[number of commands] : 0..N
+[initial position x] : -100000..100000
+[initial position y] : -100000..100000
+[direction] : N E S W
+[number of steps] : 0..200000
+```
