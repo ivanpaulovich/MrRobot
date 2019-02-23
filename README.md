@@ -10,7 +10,7 @@ dotnet test tests/MrRobot.UnitTests/MrRobot.UnitTests.csproj
 # :airplane: Running Demo in Terminal
 
 ```
-source/MrRobot.ConsoleApp
+cd source/MrRobot.ConsoleApp
 dotnet run
 2
 10 22
