@@ -7,7 +7,7 @@ A programmatically Cleaning Robot that informs the number of places cleaned afte
 dotnet test tests/MrRobot.UnitTests/MrRobot.UnitTests.csproj
 ```
 
-# :airplane: Running Demo in Terminal
+# :airplane: Running Demos
 
 ```
 cd source/MrRobot.ConsoleApp
