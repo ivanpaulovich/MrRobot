@@ -24,7 +24,7 @@ Expected Output:
 => Cleaned: 4
 ```
 
-Or try the demo which runs the robot for multiple inputs
+Or try the `demo.sh` which runs the robot for multiple inputs
 
 ```
 chmod 777 demo.sh
