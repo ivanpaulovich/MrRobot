@@ -10,10 +10,12 @@ dotnet test tests/MrRobot.UnitTests/MrRobot.UnitTests.csproj
 # :airplane: Running Demo in Terminal
 
 ```
-dotnet run <<< '2
+source/MrRobot.ConsoleApp
+dotnet run
+2
 10 22
 E 2
-N 1'
+N 1
 ```
 
 Expected Output:
