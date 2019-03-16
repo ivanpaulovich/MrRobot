@@ -1,7 +1,5 @@
 #!/bin/bash
-pushd source/MrRobot.ConsoleApp
-
-RESULT=`dotnet run <<< '2
+RESULT=`dotnet run --project "source/MrRobot.ConsoleApp/MrRobot.ConsoleApp.csproj" <<< '2
 10 22
 E 2
 N 1'`
@@ -14,7 +12,7 @@ else
 	echo "OK"
 fi
 
-RESULT=`dotnet run <<< '4
+RESULT=`dotnet run --project "source/MrRobot.ConsoleApp/MrRobot.ConsoleApp.csproj" <<< '4
 -10 0
 E 10
 N 10
@@ -29,7 +27,7 @@ else
 	echo "OK"
 fi
 
-RESULT=`dotnet run <<< '8
+RESULT=`dotnet run --project "source/MrRobot.ConsoleApp/MrRobot.ConsoleApp.csproj" <<< '8
 -100 100
 E 10
 W 10
@@ -48,7 +46,7 @@ else
 	echo "OK"
 fi
 
-RESULT=`dotnet run <<< '4
+RESULT=`dotnet run --project "source/MrRobot.ConsoleApp/MrRobot.ConsoleApp.csproj" <<< '4
 -100000 -100000
 E 200000
 S 200000
@@ -62,5 +60,3 @@ if [[ $RESULT != *"=> Cleaned: 800000"* ]]; then
 else
 	echo "OK"
 fi
-
-popd

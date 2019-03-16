@@ -6,7 +6,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="../MrRobot.Domain/MrRobot.Domain.csproj" />
+    <ProjectReference Include="../MrRobot.Core/MrRobot.Core.csproj" />
+    <ProjectReference Include="../MrRobot.Infrastructure/MrRobot.Infrastructure.csproj" />
+
   </ItemGroup>
-  
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>

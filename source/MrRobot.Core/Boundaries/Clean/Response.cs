@@ -1,9 +1,9 @@
-namespace MrRobot.Domain.Cleaning.Run
+namespace MrRobot.Core.Boundaries.Clean
 {
-    public sealed class RunOutput
+    public sealed class Response
     {
         public int UniquePlacesCleaned { get; }
-        public RunOutput(int uniquePlacesCleaned)
+        public Response(int uniquePlacesCleaned)
         {
             UniquePlacesCleaned = uniquePlacesCleaned;
         }

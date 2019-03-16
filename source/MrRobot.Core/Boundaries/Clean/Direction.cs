@@ -1,4 +1,4 @@
-namespace MrRobot.Domain.Cleaning.Run
+namespace MrRobot.Core.Boundaries.Clean
 {
     public enum Direction
     {

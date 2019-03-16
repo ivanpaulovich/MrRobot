@@ -1,46 +1,37 @@
-﻿using System;
-using MrRobot.Domain.Cleaning.Run;
-
-namespace MrRobot.App
+namespace MrRobot.ConsoleApp
 {
+    using System;
+    using System.IO;
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.Configuration;
+    using MrRobot.Core.Entities;
+    using MrRobot.Infrastructure.EntityFrameworkDataAccess;
+
     class Program
     {
         static void Main(string[] args)
         {
-            int numCommands = Convert.ToInt32(Console.ReadLine());
-            string positionText = Console.ReadLine();
-            Position initialPosition = new Position(
-                Convert.ToInt32(positionText.Split(' ')[0]), 
-                Convert.ToInt32(positionText.Split(' ')[1]));
+            Presenter presenter = new Presenter();
+            var entitiesFactory = new EntitiesFactory();
+            var builder = new DbContextOptionsBuilder<MrRobotContext>();
+            builder.UseSqlServer(ReadDefaultConnectionStringFromAppSettings());
+            builder.UseQueryTrackingBehavior(Microsoft.EntityFrameworkCore.QueryTrackingBehavior.NoTracking);
 
-            Command[] commands = new Command[numCommands];
-            for (int i = 0; i < commands.Length; i++)
-            {
-                string commandText = Console.ReadLine();
+            var context = new MrRobotContext(builder.Options);
+            var locationGateway = new LocationGateway(context);
+            var clean = new Core.UseCases.Clean(presenter, locationGateway, entitiesFactory);
+            Startup startup = new Startup(clean);
+            startup.Clean();
+        }
 
-                Direction direction = Direction.North;
-                
-                if (commandText.Split(' ')[0] == "N")
-                    direction = Direction.North;
-                
-                if (commandText.Split(' ')[0] == "S")
-                    direction = Direction.South;
-                
-                if (commandText.Split(' ')[0] == "E")
-                    direction = Direction.East;
+        private static string ReadDefaultConnectionStringFromAppSettings()
+        {
+            IConfigurationRoot configuration = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json")
+                .Build();
 
-                if (commandText.Split(' ')[0] == "W")
-                    direction = Direction.West;
-                
-                commands[i] = new Command(
-                    Convert.ToInt32(commandText.Split(' ')[1]),
-                    direction);
-            }
-
-            IRunUseCase run = new RunUseCase();
-            RunOutput output = run.Execute(initialPosition, commands);
-
-            Console.WriteLine($"=> Cleaned: {output.UniquePlacesCleaned}");
+            string connectionString = configuration.GetConnectionString("DefaultConnection");
+            return connectionString;
         }
     }
 }
